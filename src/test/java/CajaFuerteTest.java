@@ -29,16 +29,6 @@ public class CajaFuerteTest {
     }
 
     @Test
-    public void testAlIngresarElCodigoCorrectoLaCajaSeAbre(){
-        CajaFuerte caja = givenCreoUnaCajaFuerte();
-        caja.cerrar(CODIGO);
-
-        whenAbroLaCajaFuerteConElMismoCodigoSeAbre(CODIGO, caja, 3);
-
-        thenLaCajaFuerteEstaAbierta(caja);
-    }
-
-    @Test
     public void testAlIngresarElCodigoIncorrectoLaCajaNoSeAbre(){
         CajaFuerte caja = givenCreoUnaCajaFuerte();
         caja.cerrar(CODIGO);
@@ -53,15 +43,10 @@ public class CajaFuerteTest {
         CajaFuerte caja = givenCreoUnaCajaFuerte();
         caja.cerrar(CODIGO);
 
-        whenAbroLaCajaFuerteConElMismoCodigoSeAbre(CODIGO_INCORRECTO, caja, 2);
-        whenAbroLaCajaFuerteConElMismoCodigoSeAbre(CODIGO, caja);
-
-        caja.cerrar(CODIGO);
-
-        whenAbroLaCajaFuerteConElMismoCodigoSeAbre(CODIGO_INCORRECTO, caja, 1);
+        whenAbroLaCajaFuerteConElMismoCodigoSeAbre(CODIGO_INCORRECTO, caja, 3);
 
         thenLaCajaFuerteEstaCerrada(caja);
-        thenLaCajaFuerteEstaNoBloqueada(caja);
+        thenLaCajaFuerteEstaBloqueada(caja);
 
     }
 
