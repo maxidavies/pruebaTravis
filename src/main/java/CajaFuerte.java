@@ -14,7 +14,7 @@ public class CajaFuerte {
             abrir(codigo);
         else {
             this.codigo = codigo;
-            abierta = false;
+            abierta = true;
         }
 
     }
