@@ -1,6 +1,11 @@
 language: java
-os: windows
-dist: trusty
+
 before_install:
   - echo -e "machine github.com\n  login $GITHUB_TOKEN" > ~/.netrc
   - git lfs pulll
+
+install:
+  -mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
+
+script:
+  - mvn verify
